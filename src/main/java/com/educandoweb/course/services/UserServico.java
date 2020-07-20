@@ -2,14 +2,12 @@ package com.educandoweb.course.services;
 
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.educandoweb.course.entities.User;
-
 import com.educandoweb.course.repositories.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,4 +27,10 @@ public class UserServico {
 		Optional<User> obj = repo.findById(id);
 		return obj.get();
 	}
+	
+	public User insert(User obj) {
+		return repo.save(obj);
+	}
 }
+
+
