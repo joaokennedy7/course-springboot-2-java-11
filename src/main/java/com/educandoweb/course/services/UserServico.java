@@ -4,6 +4,7 @@ package com.educandoweb.course.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.aspectj.apache.bcel.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,6 +31,10 @@ public class UserServico {
 	
 	public User insert(User obj) {
 		return repo.save(obj);
+	}
+	
+	public void delete(long id) {
+		repo.deleteById(id);
 	}
 }
 
