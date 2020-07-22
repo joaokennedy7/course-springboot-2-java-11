@@ -4,7 +4,6 @@ package com.educandoweb.course.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.aspectj.apache.bcel.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +34,18 @@ public class UserServico {
 	
 	public void delete(long id) {
 		repo.deleteById(id);
+	}
+	
+	public User Update(Long id, User obj) {
+		User entity = repo.getOne(id);
+		updateData(entity, obj);
+		return repo.save(entity);
+	}
+
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());
 	}
 }
 
